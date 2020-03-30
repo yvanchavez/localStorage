@@ -8,6 +8,9 @@ function eventListeners(){
     //Cuando se envia al formulario
     document.querySelector('#formulario').addEventListener('submit',
     agregarTweet)
+
+    //Borrar tweets
+    listaTweets.addEventListener('click' , borrarTweet)
 }
 
 //funciones
@@ -24,9 +27,17 @@ function agregarTweet(e){
 
     //Crear elemento y agregar el contenido a la lista
     const li = document.createElement('li')
+    li.innerText = tweet
     //agrega el boton borrar al tweet
     li.appendChild(botonBorrar)
     //agrega el li a la lista
-    li.innerText = tweet
+    
     listaTweets.appendChild(li)
+}
+
+function borrarTweet(e){
+    e.preventDefault
+    if(e.target.className === 'borrar-tweet'){
+        e.target.parentElement.remove()
+    }
 }
